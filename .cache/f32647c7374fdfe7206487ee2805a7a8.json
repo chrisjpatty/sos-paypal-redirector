@@ -1,0 +1,1 @@
+{"dependencies":[{"name":"./index.js","dynamic":true}],"generated":{"html":"<html>\r\n  <head>\r\n    <script src=\"/dist/sos-paypal-redirector.js\"></script>\r\n  </head>\r\n  <body>\r\n    Redirecting back to origin.\r\n  </body>\r\n</html>\r\n"},"hash":"595bfb4cc345858c6f4721d2fede56d8","cacheData":{}}
