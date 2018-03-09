@@ -5,7 +5,6 @@ var http = require('http').Server(app);
 var httpProxy = require('http-proxy');
 var apiProxy = httpProxy.createProxyServer();
 var fetch = require('node-fetch');
-console.log(fetch);
 
 app.use(cors())
 
