@@ -30,6 +30,6 @@ app.get('/error', function (req, res, next) {
   res.redirect(`${customParams.ORIGIN}/paymenterror?SECURETOKENID=${query.SECURETOKENID}`)
 })
 
-http.listen(process.env.PORT || 8080, "0.0.0.0", () => {
+http.listen(process.env.PORT || 8080, () => {
   console.log("Listening on: ", process.env.PORT || 8080)
 })
