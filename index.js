@@ -28,18 +28,18 @@ app.post('/paypal/silent', function (req, res, next) {
   // const query = req.query;
   // const customParams = JSON.parse(query.USER1)
   // const apiUrl = customParams.ENV === 'development' ? 'http://192.168.111.57:53013' : customParams.ORIGIN + '/api'
-  // fetch(`http://192.168.111.57:3001/Payment/silent`, {
-  //   method: 'POST',
-  //   body: JSON.stringify(req.body)
-  // })
-  // .then(() => {
-  //   res.send(true)
-  // })
-  // .catch(err => {
-  //   console.log("Failed");
-  //   res.send(false)
-  // })
-  apiProxy.web(req, res, {target: 'http://192.168.111.57:3001/api/Payment/silent'});
+  fetch(`http://192.168.111.57:3001/api/Payment/silent`, {
+    method: 'POST',
+    body: JSON.stringify(req.body)
+  })
+  .then(() => {
+    res.send(true)
+  })
+  .catch(err => {
+    console.log("Failed");
+    res.send(false)
+  })
+  // apiProxy.web(req, res, {target: 'http://192.168.111.57:3001/api/Payment/silent'});
 })
 
 app.get('/paypal/success', function (req, res, next) {
