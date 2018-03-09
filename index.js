@@ -5,6 +5,10 @@ var http = require('http').Server(app);
 
 app.use(cors())
 
+app.get('/', function (req, res, next) {
+  res.send('Hit the root')
+})
+
 app.post('/silent', function (req, res, next) {
   const query = req.query;
   const customParams = JSON.parse(query.USER1)
