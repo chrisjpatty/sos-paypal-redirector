@@ -1,7 +1,6 @@
 var express = require('express')
 var cors = require('cors')
 var app = express()
-var fs = require('fs');
 var http = require('http').Server(app);
 var fetch = require('node-fetch');
 console.log(fetch);
@@ -25,10 +24,6 @@ app.post('/paypal/test', function (req, res, next) {
 })
 
 app.post('/paypal/silent', function (req, res, next) {
-
-  fs.writeFile("./logs/silent-body.txt", JSON.stringify(req.body), () => {
-
-  });
   // const query = req.query;
   // const customParams = JSON.parse(query.USER1)
   // const apiUrl = customParams.ENV === 'development' ? 'http://192.168.111.57:53013' : customParams.ORIGIN + '/api'
@@ -40,9 +35,6 @@ app.post('/paypal/silent', function (req, res, next) {
     res.send(true)
   })
   .catch(err => {
-    fs.writeFile("./logs/silent-log.txt", JSON.stringify(err), () => {
-
-    });
     console.log("Failed");
     res.send(false)
   })
