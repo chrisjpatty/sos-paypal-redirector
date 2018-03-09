@@ -32,7 +32,7 @@ app.get('/paypal/success', function (req, res, next) {
   const query = req.query;
   const customParams = JSON.parse(query.USER1)
   console.log('success', query);
-  res.send(`${customParams.ORIGIN}/paymenterror?SECURETOKENID=${query.SECURETOKENID}`)
+  res.redirect(`${customParams.ORIGIN}/receipt?SECURETOKENID=${query.SECURETOKENID}`)
 })
 
 app.get('/paypal/error', function (req, res, next) {
