@@ -28,18 +28,19 @@ app.post('/paypal/silent', function (req, res, next) {
   // const query = req.query;
   // const customParams = JSON.parse(query.USER1)
   // const apiUrl = customParams.ENV === 'development' ? 'http://192.168.111.57:53013' : customParams.ORIGIN + '/api'
-  fetch(`http://192.168.111.57:3001/Payment/silent`, {
-    method: 'POST',
-    body: JSON.stringify({})
-  })
-  .then(() => {
-    res.send(true)
-  })
-  .catch(err => {
-    //fs.writeFile("./logs/silent-log.txt", JSON.stringify(err));
-    console.log("Failed");
-    res.send(false)
-  })
+  // fetch(`http://192.168.111.57:3001/Payment/silent`, {
+  //   method: 'POST',
+  //   body: JSON.stringify({})
+  // })
+  // .then(() => {
+  //   res.send(true)
+  // })
+  // .catch(err => {
+  //   //fs.writeFile("./logs/silent-log.txt", JSON.stringify(err));
+  //   console.log("Failed");
+  //   res.send(false)
+  // })
+  res.send("Silent")
 })
 
 app.get('/paypal/success', function (req, res, next) {
