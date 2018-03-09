@@ -15,6 +15,7 @@
     "cors": "^2.8.4",
     "decode-query-string": "^0.1.2",
     "express": "^4.16.2",
+    "http-proxy": "^1.16.2",
     "node-fetch": "^2.1.1"
   },
   "devDependencies": {}
