@@ -9,10 +9,6 @@ app.get('/node', function (req, res, next) {
   res.send('Hit the root /node')
 })
 
-app.get('/*', function (req, res, next) {
-  res.send('Hit the root *')
-})
-
 app.get('/', function (req, res, next) {
   res.send('Hit the root ')
 })
