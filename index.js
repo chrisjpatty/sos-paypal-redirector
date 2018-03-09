@@ -34,7 +34,7 @@ app.post('/paypal/silent', function (req, res, next) {
     headers: {
       'content-type': 'application/json'
     },
-    body: JSON.stringify(req.body)
+    body: JSON.stringify(query)
   })
   .then(response => {
     console.log(response, response.ok);
