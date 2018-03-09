@@ -39,7 +39,7 @@ app.post('/paypal/silent', function (req, res, next) {
   //   console.log("Failed");
   //   res.send(false)
   // })
-  apiProxy.web(req, res, {target: 'http://192.168.111.57:3001/Payment/silent'});
+  apiProxy.web(req, res, {target: 'http://192.168.111.57:3001/api/Payment/silent'});
 })
 
 app.get('/paypal/success', function (req, res, next) {
