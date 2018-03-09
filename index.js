@@ -2,8 +2,6 @@ var express = require('express')
 var cors = require('cors')
 var app = express()
 var http = require('http').Server(app);
-var httpProxy = require('http-proxy');
-var apiProxy = httpProxy.createProxyServer();
 var fetch = require('node-fetch');
 
 app.use(cors())
@@ -30,7 +28,7 @@ app.post('/paypal/silent', function (req, res, next) {
   // const apiUrl = customParams.ENV === 'development' ? 'http://192.168.111.57:53013' : customParams.ORIGIN + '/api'
   fetch(`http://192.168.111.57:3001/api/Payment/silent`, {
     method: 'POST',
-    body: JSON.stringify(req.body)
+    body: req.body
   })
   .then(() => {
     res.send(true)
@@ -39,7 +37,6 @@ app.post('/paypal/silent', function (req, res, next) {
     console.log("Failed");
     res.send(false)
   })
-  // apiProxy.web(req, res, {target: 'http://192.168.111.57:3001/api/Payment/silent'});
 })
 
 app.get('/paypal/success', function (req, res, next) {
