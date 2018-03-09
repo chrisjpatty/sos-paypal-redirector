@@ -23,9 +23,9 @@ app.post('/paypal/test', function (req, res, next) {
 
 app.post('/paypal/silent', function (req, res, next) {
   const query = req.query;
-  const customParams = JSON.parse(query.USER1)
-  const apiUrl = customParams.ENV === 'development' ? 'http://192.168.111.57:53013' : customParams.ORIGIN + '/api'
-  fetch(`${apiUrl}/Payment/silent`, {
+  // const customParams = JSON.parse(query.USER1)
+  // const apiUrl = customParams.ENV === 'development' ? 'http://192.168.111.57:53013' : customParams.ORIGIN + '/api'
+  fetch(`http://192.168.111.57:53013/Payment/silent`, {
     method: 'POST',
     body: req.body
   })
