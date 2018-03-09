@@ -24,8 +24,17 @@ app.post('/paypal/test', function (req, res, next) {
 app.post('/paypal/silent', function (req, res, next) {
   const query = req.query;
   const customParams = JSON.parse(query.USER1)
-  console.log('silent', query);
-  res.send('Hit Silent')
+  const apiUrl = customParams.ENV === 'development' ? 'http://192.168.111.57:53013' : customParams.ORIGIN + '/api'
+  fetch(`${apiUrl}/Payment/silent`, {
+    method: 'POST',
+    body: req.body
+  })
+  .then(() => {
+    res.send(true)
+  })
+  .catch(err => {
+    console.log("Failed");
+  })
 })
 
 app.get('/paypal/success', function (req, res, next) {
