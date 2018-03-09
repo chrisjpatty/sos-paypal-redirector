@@ -1,10 +1,13 @@
 var express = require('express')
 var cors = require('cors')
 var app = express()
+var bodyParser = require('body-parser');
 var http = require('http').Server(app);
 var fetch = require('node-fetch');
 
 app.use(cors())
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/paypal', function (req, res, next) {
   res.send('Hit the root /paypal')
