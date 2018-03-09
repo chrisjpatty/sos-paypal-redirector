@@ -31,9 +31,13 @@ app.post('/paypal/silent', function (req, res, next) {
   // const apiUrl = customParams.ENV === 'development' ? 'http://192.168.111.57:53013' : customParams.ORIGIN + '/api'
   fetch(`http://192.168.111.57:3001/api/Payment/silent`, {
     method: 'POST',
-    body: req.body
+    headers: {
+      'content-type': 'application/json'
+    },
+    body: JSON.stringify(req.body)
   })
-  .then(() => {
+  .then(response => {
+    console.log(response, response.ok);
     res.send(true)
   })
   .catch(err => {
