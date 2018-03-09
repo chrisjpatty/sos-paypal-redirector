@@ -3,6 +3,8 @@ var cors = require('cors')
 var app = express()
 var fs = require('fs');
 var http = require('http').Server(app);
+var fetch = require('node-fetch');
+console.log(fetch);
 
 app.use(cors())
 
@@ -24,23 +26,22 @@ app.post('/paypal/test', function (req, res, next) {
 
 app.post('/paypal/silent', function (req, res, next) {
 
-  //fs.writeFile("./logs/silent-body.txt", JSON.stringify(req.body));
+  fs.writeFile("./logs/silent-body.txt", JSON.stringify(req.body));
   // const query = req.query;
   // const customParams = JSON.parse(query.USER1)
   // const apiUrl = customParams.ENV === 'development' ? 'http://192.168.111.57:53013' : customParams.ORIGIN + '/api'
-  // fetch(`http://192.168.111.57:3001/Payment/silent`, {
-  //   method: 'POST',
-  //   body: JSON.stringify({})
-  // })
-  // .then(() => {
-  //   res.send(true)
-  // })
-  // .catch(err => {
-  //   //fs.writeFile("./logs/silent-log.txt", JSON.stringify(err));
-  //   console.log("Failed");
-  //   res.send(false)
-  // })
-  res.send("Silent")
+  fetch(`http://192.168.111.57:3001/Payment/silent`, {
+    method: 'POST',
+    body: JSON.stringify({})
+  })
+  .then(() => {
+    res.send(true)
+  })
+  .catch(err => {
+    //fs.writeFile("./logs/silent-log.txt", JSON.stringify(err));
+    console.log("Failed");
+    res.send(false)
+  })
 })
 
 app.get('/paypal/success', function (req, res, next) {
