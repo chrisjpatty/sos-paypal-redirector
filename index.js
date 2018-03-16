@@ -37,8 +37,12 @@ app.post('/paypal/silent', function (req, res, next) {
     body: JSON.stringify(req.body)
   })
   .then(response => {
-    console.log(response, response.ok);
-    res.send(true)
+    if(response.ok){
+      console.log(response, response.ok);
+      res.send(true)
+    }else{
+      response.sendStatus(500)
+    }
   })
   .catch(err => {
     console.log("Failed");
