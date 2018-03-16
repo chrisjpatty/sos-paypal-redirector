@@ -42,7 +42,7 @@ app.post('/paypal/silent', function (req, res, next) {
   })
   .catch(err => {
     console.log("Failed");
-    res.send(false)
+    res.status(500).send(false)
   })
 })
 
