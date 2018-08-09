@@ -1,0 +1,11 @@
+TypeError: Cannot read property 'HEADER1' of null
+    at ResultCard (E:\websites\ws.dev.nd.tecuity.com\node\static\app.bundle.js:18697:10)
+    at E:\websites\ws.dev.nd.tecuity.com\node\node_modules\react-dom\lib\ReactCompositeComponent.js:303:16
+    at measureLifeCyclePerf (E:\websites\ws.dev.nd.tecuity.com\node\node_modules\react-dom\lib\ReactCompositeComponent.js:73:12)
+    at ReactCompositeComponentWrapper._constructComponentWithoutOwner (E:\websites\ws.dev.nd.tecuity.com\node\node_modules\react-dom\lib\ReactCompositeComponent.js:302:14)
+    at ReactCompositeComponentWrapper._constructComponent (E:\websites\ws.dev.nd.tecuity.com\node\node_modules\react-dom\lib\ReactCompositeComponent.js:277:21)
+    at ReactCompositeComponentWrapper.mountComponent (E:\websites\ws.dev.nd.tecuity.com\node\node_modules\react-dom\lib\ReactCompositeComponent.js:185:21)
+    at Object.mountComponent (E:\websites\ws.dev.nd.tecuity.com\node\node_modules\react-dom\lib\ReactReconciler.js:43:35)
+    at ReactDOMComponent.mountChildren (E:\websites\ws.dev.nd.tecuity.com\node\node_modules\react-dom\lib\ReactMultiChild.js:234:44)
+    at ReactDOMComponent._createContentMarkup (E:\websites\ws.dev.nd.tecuity.com\node\node_modules\react-dom\lib\ReactDOMComponent.js:657:32)
+    at ReactDOMComponent.mountComponent (E:\websites\ws.dev.nd.tecuity.com\node\node_modules\react-dom\lib\ReactDOMComponent.js:524:29)

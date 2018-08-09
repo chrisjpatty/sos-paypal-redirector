@@ -1,0 +1,14 @@
+Deprecation warning: value provided is not in a recognized RFC2822 or ISO format. moment construction falls back to js Date(), which is not reliable across all browsers and versions. Non RFC2822/ISO date formats are discouraged and will be removed in an upcoming major release. Please refer to http://momentjs.com/guides/#/warnings/js-date/ for more info.
+Arguments: 
+[0] _isAMomentObject: true, _isUTC: false, _useUTC: false, _l: undefined, _i: 08/06/2018, _f: undefined, _strict: undefined, _locale: [object Object]
+Error
+    at Function.createFromInputFallback (E:\websites\ws.dev.nd.tecuity.com\node\static\app.bundle.js:403:94)
+    at configFromString (E:\websites\ws.dev.nd.tecuity.com\node\static\app.bundle.js:2442:11)
+    at configFromInput (E:\websites\ws.dev.nd.tecuity.com\node\static\app.bundle.js:2668:9)
+    at prepareConfig (E:\websites\ws.dev.nd.tecuity.com\node\static\app.bundle.js:2651:9)
+    at createFromConfig (E:\websites\ws.dev.nd.tecuity.com\node\static\app.bundle.js:2618:40)
+    at createLocalOrUTC (E:\websites\ws.dev.nd.tecuity.com\node\static\app.bundle.js:2705:12)
+    at createLocal (E:\websites\ws.dev.nd.tecuity.com\node\static\app.bundle.js:2709:12)
+    at hooks (E:\websites\ws.dev.nd.tecuity.com\node\static\app.bundle.js:95:25)
+    at SectionBox._this4.getValueByType (E:\websites\ws.dev.nd.tecuity.com\node\static\app.bundle.js:18099:71)
+    at SectionBox._this4.getBoxByType (E:\websites\ws.dev.nd.tecuity.com\node\static\app.bundle.js:18281:59)
