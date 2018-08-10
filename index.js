@@ -4,6 +4,7 @@ var app = express()
 var bodyParser = require('body-parser');
 var http = require('http').Server(app);
 var fetch = require('node-fetch');
+const log = require('simple-node-logger').createSimpleLogger('errors.log');
 
 app.use(cors())
 app.use(bodyParser.json());
@@ -26,28 +27,34 @@ app.post('/paypal/test', function (req, res, next) {
 })
 
 app.post('/paypal/silent', function (req, res, next) {
-  const query = req.query;
-  // const customParams = JSON.parse(query.USER1)
-  // const apiUrl = customParams.ENV === 'development' ? 'http://192.168.111.57:53013' : customParams.ORIGIN + '/api'
-  fetch(`http://192.168.111.57:3000/api/Payment/activate?${JSON.stringify(query)}`, {
-    method: 'POST',
-    headers: {
-      'content-type': 'application/json'
-    },
-    body: JSON.stringify(req.body)
-  })
-  .then(response => {
-    if(response.ok){
-      console.log(response, response.ok);
-      res.send(true)
-    }else{
-      response.sendStatus(500)
-    }
-  })
-  .catch(err => {
-    console.log("Failed");
-    res.status(500).send(false)
-  })
+  console.log(req);
+  try {
+    const query = req.query;
+    console.log(query);
+    // const customParams = JSON.parse(query.USER1)
+    // const apiUrl = customParams.ENV === 'development' ? 'http://192.168.111.57:53013' : customParams.ORIGIN + '/api'
+    fetch(`http://192.168.111.57:3000/api/Payment/activate?${JSON.stringify(query)}`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(req.body)
+    })
+    .then(response => {
+      if(response.ok){
+        console.log(response, response.ok);
+        res.send(true)
+      }else{
+        response.sendStatus(500)
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).send(false)
+    })
+  } catch (e) {
+    console.error(e)
+  }
 })
 
 app.get('/paypal/success', function (req, res, next) {
