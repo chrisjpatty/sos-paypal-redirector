@@ -4,7 +4,6 @@ var app = express()
 var bodyParser = require('body-parser');
 var http = require('http').Server(app);
 var fetch = require('node-fetch');
-const log = require('simple-node-logger').createSimpleLogger('errors.log');
 
 app.use(cors())
 app.use(bodyParser.json());
@@ -27,13 +26,12 @@ app.post('/paypal/test', function (req, res, next) {
 })
 
 app.post('/paypal/silent', function (req, res, next) {
-  console.log(req);
   try {
-    const query = req.query;
-    console.log(query);
+    const customParams = req.body.USER1;
+    const origin = JSON.parse(customParams).ORIGIN
     // const customParams = JSON.parse(query.USER1)
     // const apiUrl = customParams.ENV === 'development' ? 'http://192.168.111.57:53013' : customParams.ORIGIN + '/api'
-    fetch(`http://192.168.111.57:3000/api/Payment/activate?${JSON.stringify(query)}`, {
+    fetch(`${origin}/api/Payment/activate`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -45,7 +43,7 @@ app.post('/paypal/silent', function (req, res, next) {
         console.log(response, response.ok);
         res.send(true)
       }else{
-        response.sendStatus(500)
+        res.sendStatus(500)
       }
     })
     .catch(err => {
